@@ -19,6 +19,7 @@ max_y = max([x[1] for x in lines])+1
 
 region_dict=dict()
 for i in range(min_x,max_x): #iterate over each x
+    print("x:",str(i)+"/"+str(max_x))
     for j in range(min_y,max_y): #iterate over each y
         mindist=float("inf")
         for k,coord in enumerate(lines): #compare this coordinate to all coordinate in dataset
@@ -28,7 +29,6 @@ for i in range(min_x,max_x): #iterate over each x
                 mincoord=[coord]
             elif(this_dist==mindist):
                 mincoord.append(coord)
-        print("Current x:",i,"Max x:",max_x)
         dict_entry=(mincoord[0][0],mincoord[0][1]) 
         if(len(mincoord)==1):
             if(dict_entry in region_dict.keys()):
